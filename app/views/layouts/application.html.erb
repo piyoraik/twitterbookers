@@ -10,6 +10,32 @@
   </head>
 
   <body>
+    <header>
+      <div class="container">
+        <h1 class="nav navbar-nav navbar-left">Bookers4</h1>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+              <li><%= link_to 'Home', user_path(current_user.id), class: "navia" %></li>
+              <li><%= link_to 'Users', '/about', class: "navia" %></li>
+              <li>
+                <%= link_to logout_path, class:"navia" do %>
+                 <i class="fab fa-twitter">ログアウト</i>
+                <% end %>
+              </li>
+            <% else %>
+              <li><%= link_to 'Home', root_path, class:"navia" %></li>
+              <li><%= link_to 'About', '/about', class:"navia" %></li>
+              <li>
+                <%= link_to '/auth/twitter', class:"navia" do %>
+                 <i class="fab fa-twitter">ログイン</i>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

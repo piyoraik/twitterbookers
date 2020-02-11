@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
             nickname: user_data[:info][:nickname],
             name: user_data[:info][:name],
             image: user_data[:info][:image],
+            description: user_data[:info][:description]
           )
           #! 保存に成功したら
           if new_user.save
