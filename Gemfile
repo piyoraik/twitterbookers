@@ -67,6 +67,9 @@ gem 'dotenv-rails'
 # TiwtterAuth
 gem 'omniauth-twitter'
 
+# Twitter
+gem 'twitter'
+
 # refile
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem 'refile-mini_magick'

@@ -1,24 +1,20 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-4">
-            <h2>User info</h2>
-            <%= image_tag current_user.image %>
+        <%= render 'users/left', user: @user %>
+        <div class="col-xs-8">
+            <h2>Recent tweets</h2>
             <table class="table">
-            <tr>
-                <th>User</th>
-                <td><%= current_user.name %></td>
-            </tr>
-            <tr>
-                <th>TwitterID</th>
-                <td>@<%= current_user.nickname %></td>
-            </tr>
-            <tr>
-                <th>Comment</th>
-                <td><%= current_user.description %></td>
+                <tr>
+                    <th>Time</th>
+                    <th>Tweet</th>
+                <% @tweets.each do |tweet| %>
+                <tr>
+                    <td><%= tweet.created_at %></td>
+                    <td><%= tweet.text %></td>
+                </tr>
+                <% end %>
             </table>
-        </div>
-        <div class="col-cs-8">
-        aaaa
+            
         </div>
     </div>
 </div>

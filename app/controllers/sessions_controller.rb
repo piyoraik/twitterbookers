@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     def create
         #! request.env['omniauth.auth'][:uid]にデータが入っていないなら
         unless request.env['omniauth.auth'][:uid]
-          flash[:danger] = '連携に失敗しました'
+          flash[:message] = '連携に失敗しました'
           redirect_to root_url
         end
         #! Jsonの代入
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         #! Userに値が入っているならログイン
         if user
           log_in user
-          flash[:success] = 'ログインしました'
+          flash[:message] = 'ログインしました'
           redirect_to root_url
         #! Userに値が入っていないなら新規登録
         else
@@ -27,19 +27,18 @@ class SessionsController < ApplicationController
           #! 保存に成功したら
           if new_user.save
             log_in new_user
-            flash[:success] = 'ユーザー登録成功'
+            flash[:message] = 'ユーザー登録成功'
           #! 保存に失敗したら
           else
-            flash[:danger] = '予期せぬエラーが発生しました'
+            flash[:message] = '予期せぬエラーが発生しました'
           end
           redirect_to root_url
         end
       end
-    
-    
+
       def destroy
         log_out if logged_in?
-        flash[:success] = 'ログアウトしました'
+        flash[:message] = 'ログアウトしました'
         redirect_to root_url
       end
 end

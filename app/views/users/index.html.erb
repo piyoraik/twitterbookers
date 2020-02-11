@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <%= render 'users/left', user: @profile %>
+        <div class="col-xs-8">
+            <h2>User List</h2>
+            <table class="table">
+                <thead>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>User</th>
+                    <th>TwitterID</th>
+                </thead>
+                <tbody>
+                    <% @users.each do |user| %>
+                    <tr>
+                        <td><%= user.id %></td>
+                        <td><%= image_tag user.image %>
+                        <td><%= user.name %></th>
+                        <td>@<%= user.nickname %></th>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -17,7 +17,7 @@
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
               <li><%= link_to 'Home', user_path(current_user.id), class: "navia" %></li>
-              <li><%= link_to 'Users', '/about', class: "navia" %></li>
+              <li><%= link_to 'Users', users_path, class: "navia" %></li>
               <li>
                 <%= link_to logout_path, class:"navia" do %>
                  <i class="fab fa-twitter">ログアウト</i>

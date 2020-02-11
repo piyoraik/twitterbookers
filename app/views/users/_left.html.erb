@@ -1,0 +1,17 @@
+<div class="col-xs-4">
+    <h2>User info</h2>
+    <%= image_tag user.image %>
+    <table class="table">
+        <tr>
+            <th>User</th>
+            <td><%= user.name %></td>
+        </tr>
+        <tr>
+            <th>TwitterID</th>
+            <td>@<%= user.nickname %></td>
+        </tr>
+        <tr>
+            <th>Comment</th>
+            <td><%= user.description %></td>
+    </table>
+</div>
