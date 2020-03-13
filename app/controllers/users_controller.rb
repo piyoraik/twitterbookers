@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     before_action :twitter
     def index
         @users = User.all
-        @profile = twitter.user(current_user.uid.to_i)
+        @user = current_user
     end
 
     def show

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <%= render 'users/left', user: @profile %>
+        <%= render 'users/left', user: @user %>
         <div class="col-xs-8">
             <h2>User List</h2>
             <table class="table">
@@ -14,7 +14,7 @@
                     <% @users.each do |user| %>
                     <tr>
                         <td><%= user.id %></td>
-                        <td><%= image_tag user.image %>
+                        <td><%= link_to (image_tag user.image),user_path(user.id) %>
                         <td><%= user.name %></th>
                         <td>@<%= user.nickname %></th>
                     </tr>
