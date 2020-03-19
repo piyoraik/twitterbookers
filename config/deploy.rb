@@ -1,10 +1,10 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.12.1"
 
-set :application, "ec2-deploy"
+set :application, "twitterbookers"
 set :repo_url, "git@github.com:piyoraik/twitterbookers.git"
 
-set :deploy_to, "/home/ec2-user/ec2-deploy"
+set :deploy_to, "/home/ec2-user/twitterbookers"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
