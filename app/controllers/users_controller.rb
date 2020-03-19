@@ -9,7 +9,18 @@ class UsersController < ApplicationController
     def show
         @profile = twitter.user(current_user.uid.to_i)
         @user = User.find(params[:id])
-        @tweets = twitter.user_timeline(@user.nickname)
+        # @tweets = twitter.user_timeline(@user.nickname)
+        @test = current_user
+    end
+
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        user = User.find(params[:id])
+        user.update(profile_params)
+        redirect_to user_path(user)
     end
 
     private
@@ -20,5 +31,9 @@ class UsersController < ApplicationController
                 config.access_token = ENV['TWITTER_ACCSESS_TOKEN']
                 config.access_token_secret = ENV['TWITTER_ACCSESS_TOKEN_SECRET']
             end
+        end
+
+        def profile_params
+            params.require(:user).permit(:name, :description)
         end
 end

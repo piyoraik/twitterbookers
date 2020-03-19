@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   get 'auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit, :update]
 end
